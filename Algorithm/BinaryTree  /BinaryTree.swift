@@ -9,9 +9,8 @@
 import Foundation
 
 // 求二叉树的最大深度
-
 class TreeNode {
-    var value: Int?
+    var value: Int = 0
     var left: TreeNode?
     var right: TreeNode?
     init(_ value: Int) {
@@ -25,6 +24,27 @@ func maxDepth(_ node: TreeNode?) -> Int {
     }
     return 1 + max(maxDepth(node?.left), maxDepth(node?.right))
 }
+
+var paths = [[Int]]()
+var path = [Int]()
+
+@discardableResult
+func getPaths(rootNode: TreeNode?, target: Int) -> [[Int]] {
+    guard let node = rootNode else {
+        return paths;
+    }
+    path.append(node.value)
+    let targetValue =  target - node.value
+    if node.left == nil && node.right == nil && targetValue == 0 {
+        paths.append(path)
+    }
+    getPaths(rootNode: node.left, target: targetValue)
+    getPaths(rootNode: node.right, target: targetValue)
+    path.removeLast()
+    return paths;
+}
+
+
 
 extension TreeNode {
     // 测试案例
@@ -52,11 +72,9 @@ extension TreeNode {
             lastNodes = nodes
             nodes = children
         }
-        print("最后一个孩子节点\(lastNodes.last!.value!)")
+        print("最后一个孩子节点\(lastNodes.last!.value)")
         print("实际深度：\(depth) -- 计算深度：\(maxDepth(rootNode))")
     }
-
-
 }
 
 
