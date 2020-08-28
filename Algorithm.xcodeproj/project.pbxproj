@@ -163,6 +163,7 @@
 				4C6067B924DFA7A600C0FAF8 /* ViewController.swift in Sources */,
 				828201BB24E446C900240A79 /* Array.swift in Sources */,
 				4C6067B524DFA7A600C0FAF8 /* AppDelegate.swift in Sources */,
+				4C971BF124EA35ED0075BC7E /* String.swift in Sources */,
 				4C6067CB24DFA8F800C0FAF8 /* BinaryTree.swift in Sources */,
 				4C6067B724DFA7A600C0FAF8 /* SceneDelegate.swift in Sources */,
 			);
