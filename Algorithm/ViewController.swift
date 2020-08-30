@@ -12,19 +12,45 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        buddlingSortCase()
+//        buddlingSortCase()
+//        kNode()
     }
     
     func buddlingSortCase()  {
-        var arr = [5, 7, 3, 29, 10, 15]
+//        var arr = [5, 7, 3, 29, 10, 15]
+       var arr = [5, 8,10,7, 3, 29, 10, 15]
+
         
-        
+//        var arr = [15, 7, 3, 99, 10, 2, 15, 3, 9]
 //        print(bubblingASCSort(&arr))
 //        print(bubblingDescSort(&arr))
 //        print(selectSort(&arr))
 //        print(insertSort(&arr))
-        print(quickSort(&arr, l: 0, r: arr.count-1))
+//        print(quickSort(&arr, l: 0, r: arr.count-1))
+//        print(heapSort(&arr, length: arr.count))
 
+//        print(countSort(&arr))
+        
+//        print(mergeSort(arr))
+        print(shellSort(&arr))
+
+    }
+    
+    func kNode() {
+         let node1 = Node(10)
+         let node2 = Node(5)
+         let node3 = Node(12)
+         let node4 = Node(4)
+         let node5 = Node(7)
+
+         node1.next = node2
+         node2.next = node3
+         node3.next = node4
+         node4.next = node5
+        
+        printReverseNode(node: node1)
+            
+//        print(findSufix(node: node1, k: 2)?.value ?? 0)
     }
     
     func nodePathsCase()  {
@@ -45,10 +71,9 @@ class ViewController: UIViewController {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // 计算深度
-        TreeNode.testMaxDepth()
-        //
-        print("saas".uniqueCharcaters())
-        print("sab4".uniqueCharcaters())
+//        TreeNode.testMaxDepth()
+        // 计算节点数
+        print(TreeNode.testCount())
     }
 
 }

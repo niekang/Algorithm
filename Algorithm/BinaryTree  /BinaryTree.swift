@@ -45,6 +45,24 @@ func getPaths(rootNode: TreeNode?, target: Int) -> [[Int]] {
 }
 
 
+// 二叉树的节点个数
+func nodeCount(root: TreeNode?) -> Int {
+    if root == nil {
+        return 0
+    }
+    return 1 + nodeCount(root: root?.left) + nodeCount(root: root?.right)
+}
+
+// 第k层的节点数
+func nodeCount(node: TreeNode?, at level: Int = 0) -> Int {
+    if node == nil || level < 1 {
+        return 0
+    }
+    if level == 1 {
+        return 1
+    }
+    return nodeCount(node: node?.left, at: level-1) + nodeCount(node: node?.right, at: level-1)
+}
 
 extension TreeNode {
     // 测试案例
@@ -74,6 +92,14 @@ extension TreeNode {
         }
         print("最后一个孩子节点\(lastNodes.last!.value)")
         print("实际深度：\(depth) -- 计算深度：\(maxDepth(rootNode))")
+    }
+    
+    class func testCount() -> Int {
+        let node = TreeNode(0)
+        node.left = TreeNode(1)
+        node.right = TreeNode(2)
+        
+        return nodeCount(root: node)
     }
 }
 
